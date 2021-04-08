@@ -1,0 +1,10 @@
+inicioFormulario
+titulo "Cadastro de pessoa"
+campo texto "Nome" 
+campo senha "Senha"
+campo data "Data de nascimento"
+campo email "E-mail"
+campo escolhaUnica feminino, masculino
+campo escolhaMultipla  gato, cachorro, passaro, peixe
+
+fimFormulario

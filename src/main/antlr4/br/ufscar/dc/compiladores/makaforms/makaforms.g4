@@ -1,4 +1,4 @@
-lexer grammar makaforms;
+grammar makaforms;
 
 //COMENTARIO: 
 
@@ -23,3 +23,25 @@ NUM_INT: ('0'..'9')+;
 SIMBOLOS: ',' ; 
 
 WS: [ \t\r\n]+ -> skip;    
+
+//Inicio do sintatico
+
+programa: 'inicioFormulario' titulo corpo 'fimFormulario';
+
+titulo: 'titulo' CADEIA;
+
+corpo: (cmp)*;
+
+cmp: 'campo' (cmpTexto | cmpSenha | cmpData | cmpEmail | cmpEUnica | cmpEMultipla
+    );
+
+cmpTexto: 'texto' expressao;
+cmpSenha: 'senha' expressao;
+cmpData: 'data' expressao;
+cmpEmail: 'email' expressao;
+cmpEUnica: 'escolhaUnica' identificador (',' identificador)*;
+cmpEMultipla: 'escolhaMultipla' identificador (',' identificador)*;
+
+expressao: CADEIA;
+
+identificador: IDENT;
