@@ -5,10 +5,11 @@ grammar makaforms;
 /* define palavras reservadas (palavres chaves) da linguagem makaforms*/
 PALAVRAS_CHAVE: 'inicioFormulario' | 'fimFormulario' | 'campo' | 'botao' |
                 'texto' | 'senha'| 'data' | 'email' | 'escolhaUnica' |
-                'escolhaMultipla' | 'arquivo' | 'caixaTexto';
+                'escolhaMultipla' | 'arquivo' | 'caixaTexto' | 'foto' | 
+                'pdf' | 'um' | 'multiplos';
 
-/* define identificadores da linguagem apenas com restricao de nao inicializar com caracteres numericos, podendo conter apenas _ como caractere especial alem de letras e numeros*/
-IDENT: ('A'..'Z' | 'a'..'z' | '_')('A'..'Z' | 'a'..'z' | '0'..'9' | '_')*;
+/* define identificadores das opções de algum campo, pode conter letras, números, caracteres especiais e espaço"*/
+IDENT: ('\u0080'..'\uffff')*;
 
 /* define cadeias da linguagem  */
 /* sequencia ao longo do algoritmo que necessariamente comeca e finaliza com aspas  */
@@ -39,8 +40,8 @@ cmpTexto: 'texto' expressao;
 cmpSenha: 'senha' expressao;
 cmpData: 'data' expressao;
 cmpEmail: 'email' expressao;
-cmpEUnica: 'escolhaUnica' identificador (',' identificador)*;
-cmpEMultipla: 'escolhaMultipla' identificador (',' identificador)*;
+cmpEUnica: 'escolhaUnica' identificador (',' identificador)* expressao;
+cmpEMultipla: 'escolhaMultipla' identificador (',' identificador)* expressao;
 
 expressao: CADEIA;
 

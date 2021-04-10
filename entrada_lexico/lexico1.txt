@@ -1,0 +1,13 @@
+inicioFormulario
+titulo "Cadastro de pessoa"
+campo texto "Nome"
+campo texto "Sobrenome"
+campo email "Email"
+campo senha "Senha"
+campo data "Data de nascimento"
+campo escolhaUnica feminino, masculino, outro "Gênero"
+campo escolhaMultipla gato, cachorro, pássaro, peixe, outros "Animal de estimação"
+campo arquivo foto um "Foto de perfil"
+campo caixaTexto 10 20 "Descrição"
+botao "Cadastrar"
+fimFormulario

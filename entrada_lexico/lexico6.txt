@@ -1,0 +1,7 @@
+inicioFormulario
+titulo "Pesquisar passagem de ônibus"
+campo data "Data da viagem"
+campo escolhaUnica São Paulo, São Carlos, Araraquara "Origem"
+campo escolhaUnica Rio de Janeiro, Florianópolis, Belo Horizonte "Destino"
+botao "Pesquisar"
+fimFormulario

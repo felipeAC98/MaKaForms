@@ -1,0 +1,12 @@
+inicioFormulario
+titulo "Fazer um pedido - Macarronato"
+campo texto "Nome"
+campo texto "Sobrenome"
+campo texto "CPF"
+campo texto "Telefone
+campo caixaTexto "Endereço completo"
+campo escolhaUnica macarrão, escondidinho, nhoque, tapioca "Prato"
+campo escolhaMultipla carne, frango, linguiça calabresa, cogumelo, ervinha, milho, tomate seco "Adicionais"
+campo escolhaUnica receber em casa, retirar no restaurante, refeição no restaurante "Tipo de pedido"
+botao "Fazer pedido"
+fimFormulario

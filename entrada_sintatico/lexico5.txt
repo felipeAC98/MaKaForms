@@ -1,0 +1,12 @@
+inicioFormulario
+titulo "Cadastrar currículo para estágio"
+campo texto "Nome completo"
+campo data "Data de nascimento"
+campo texto "Universidade"
+campo texto "Curso"
+campo data "Data prevista de conclusão do curso"
+campo caixaTexto "Experiências"
+campo arquivo pdf "Curriculum vitae"
+campo arquivo pdf um "Carta de motivação"
+botao "Enviar"
+fimFormulario

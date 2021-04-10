@@ -1,0 +1,9 @@
+inicioFormulario
+titulo "Cadastro de animal de estimação"
+campo texto "Nome"
+campo data "Data de nascimento"
+campo escolhaUnica gato, cachorro, pássaro, peixe, outra espécie "Espécie"
+campo texto "Raça"
+campo arquivo foto um "Foto"
+campo caixaTexto 10 20 "Descrição"
+botao "Cadastrar"
