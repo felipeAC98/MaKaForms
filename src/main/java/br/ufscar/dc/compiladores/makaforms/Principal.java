@@ -51,7 +51,7 @@ public class Principal {
         
         //movendo para o inicio do arquivo novamente
         //para analisar novamente e ver a ocorrência de erros 
-        /*cs.seek(0);
+        cs.seek(0);
         lex.setInputStream(cs);
 
         //associando o errorListener criado com o lexer e com o parser
@@ -60,7 +60,7 @@ public class Principal {
 
         parser.removeErrorListeners();
         parser.addErrorListener(MKEL);
-        parser.programa();       */
+        parser.programa();   
 
         saida.close();
     }

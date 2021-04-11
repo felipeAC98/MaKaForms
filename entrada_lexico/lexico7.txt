@@ -1,7 +1,7 @@
 inicioFormulario
 titulo "Bilheteria"
-campo texto "Nome completo"
-campo data "Data do show"
-campo escolhaUnica U2, Capital Inicial, Green Day, The Offspring, Pitty "Banda"
+campo _texto "Nome completo"
+campo _data "Data do show"
+campo _escolhaUnica U2, Capital Inicial, Green Day, The Offspring, Pitty "Banda"
 botao "Reservar ingresso"
 fimFormulario
