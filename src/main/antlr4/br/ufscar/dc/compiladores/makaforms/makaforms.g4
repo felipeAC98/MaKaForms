@@ -16,12 +16,21 @@ IDENT: ('A'..'Z' | 'a'..'z' | '_' )('A'..'Z' | 'a'..'z' | '_')*;
 /* onde entre essas aspas nao pode ocorrer " ou quebra de linha */
 CADEIA: '"'(~('"'|'\n'))*'"';
 
+//Definicao para erro de cadeia
+ERRO_CADEIA: '"'(~('"'|'\n'))*;
+
 /* definicao de numeros inteiros    */
 /* formados pela sequencia de 1 ou + caracteres numericos de 0 a 9.*/
 NUM_INT: ('0'..'9')+; 
 
 /* define caracteres que nao sao letras */
-SIMBOLOS: ',' ; 
+SIMBOLOS: ':' | ',' | '(' | ')'; 
+
+/* definicao para erro - simbolo nao identificado, nao faz parte da linguagem  */
+ERRO_SIMBOLO: SIMBOLO_NAODEFINIDO | '}'; 
+
+/* definicao para erro - simbolo nao identificado, nao faz parte da linguagem  */
+SIMBOLO_NAODEFINIDO:'@' | '$' | '¨' | '~' | '!' | ';' | '%' | '?'| '|' | '=' | '[' | ']' | '^'  | '-' | '&' | '..' ; 
 
 WS: [ \t\r\n]+ -> skip;    
 
