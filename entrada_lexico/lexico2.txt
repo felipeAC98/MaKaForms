@@ -1,7 +1,7 @@
 inicioFormulario
 titulo "Cadastro de animal de estimação"
-campo _texto "Nome"
-campo _data "Data de nascimento"
+campo _texto nome:"Nome"
+campo _data dtNascimento:"Data de nascimento"
 campo _escolhaUnica gato, cachorro, pássaro, peixe, outra espécie "Espécie"
 campo _texto "Raça"
 campo _arquivo foto um "Foto"

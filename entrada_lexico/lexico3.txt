@@ -1,6 +1,6 @@
 inicioFormulario
 titulo "Fazer um pedido - Macarronato"
-campo _texto "Nome"
+campo _texto nome:"Nome"
 campo _texto "Sobrenome"
 campo _texto "CPF"
 campo _texto "Telefone"

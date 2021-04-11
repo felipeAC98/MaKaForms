@@ -1,6 +1,6 @@
 inicioFormulario
 titulo "Cadastrar currículo para estágio"
-campo _texto "Nome completo"
+campo _texto nome:"Nome Completo"
 campo _data "Data de nascimento"
 campo _texto "Universidade"
 campo _texto "Curso"
