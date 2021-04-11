@@ -1,0 +1,11 @@
+inicioFormulario
+titulo "Cadastro de pessoa"
+campo _texto nome:"Nome"
+campo _texto sobrenome:"Sobrenome"
+campo _email email:"Email"
+campo _senha senha:"Senha"
+campo _data dtNascimento:"Data de nascimento"
+campo _escolhaUnica feminino:"feminino", masculino:"masculino", outro:"outro" genero:"Gênero"
+campo _escolhaMultipla gato:"gato", cachorro:"cachorro", passaro:"pássaro", peixe:"peixe", outros:"outros" pet:"Animal de estimação"
+botao "Cadastrar"
+fimFormulario

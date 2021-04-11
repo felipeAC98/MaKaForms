@@ -1,5 +1,6 @@
 package br.ufscar.dc.compiladores.makaforms;
 
+import br.ufscar.dc.compiladores.makaforms.makaformsParser.ProgramaContext;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
@@ -28,7 +29,7 @@ public class Principal {
         Boolean ERROR = false;
         
         while((aux = lex.nextToken()).getType() != Token.EOF){  //enquanto tivermos caracteres no arquivo de entrada para serem analisados 
-            System.out.println("<"+makaformsLexer.VOCABULARY.getDisplayName(aux.getType())+","+aux.getText()+">");
+            //System.out.println("<"+makaformsLexer.VOCABULARY.getDisplayName(aux.getType())+","+aux.getText()+">");
             
             //para formacao da parte direita do token
             String direita_token = aux.getText(); // usada para montagem do token <getText(),direita_token>
@@ -67,8 +68,19 @@ public class Principal {
 
             parser.removeErrorListeners();
             parser.addErrorListener(MKEL);
-            parser.programa();   
-           
+            ProgramaContext arvore= parser.programa();
+            Semantico MKFS= new Semantico();
+            MKFS.visitPrograma(arvore);
+
+            if(SemanticoUtils.errosSemanticos.isEmpty()==false){
+                //Escrevendo os erros gravados no LASemanticoUtils para um arquivo
+                List<String> errosSemanticos = SemanticoUtils.errosSemanticos;
+                for (var erroSemantico : errosSemanticos) {
+                    saida.write((erroSemantico + "\n").getBytes());
+                }   
+
+                saida.write(("Fim da compilacao\n").getBytes());               
+            }
         }
         saida.close();
     }

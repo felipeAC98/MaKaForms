@@ -36,9 +36,12 @@ WS: [ \t\r\n]+ -> skip;
 
 //Inicio do sintatico
 
-programa: 'inicioFormulario' titulo corpo 'fimFormulario';
+programa: 'inicioFormulario' titulo corpo botao'fimFormulario';
 
 titulo: 'titulo' CADEIA;
+
+//Botao de envio
+botao: 'botao' CADEIA;
 
 corpo: (cmp)*;
 
@@ -46,18 +49,16 @@ corpo: (cmp)*;
 cmp: 'campo' (cmpTexto | cmpSenha | cmpData | cmpEmail | cmpEUnica | cmpEMultipla
     );
 
-cmpTexto: '_texto' nomeCampo;
-cmpSenha: '_senha' nomeCampo;
-cmpData: '_data' nomeCampo;
-cmpEmail: '_email' nomeCampo;
-cmpEUnica: '_escolhaUnica' item (',' item)* nomeCampo;
-cmpEMultipla: '_escolhaMultipla' item (',' item)* nomeCampo;
+cmpTexto: '_texto' identCampo;
+cmpSenha: '_senha' identCampo;
+cmpData: '_data' identCampo;
+cmpEmail: '_email' identCampo;
+cmpEUnica: '_escolhaUnica' item (',' item)* identCampo;
+cmpEMultipla: '_escolhaMultipla' item (',' item)* identCampo;
 
-//Itens presentes em cada campo de alternativas, eh definido pelo identificador e a expressao
-item: identificador ':' expressao ; 
-
-//Semelhante a um item, o nome do campo tambem eh tratado de forma semelhante
-nomeCampo: identificador ':' expressao ; 
+//Campos e itens de campos seram tratados da mesma forma, serao definidos por um identificador e a expressao referente a ele que sera seu conteudo
+identCampo: identificador ':' expressao ; 
+item: identCampo;
 
 expressao: CADEIA;
 
