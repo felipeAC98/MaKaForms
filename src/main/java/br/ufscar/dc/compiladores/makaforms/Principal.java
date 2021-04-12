@@ -3,6 +3,7 @@ package br.ufscar.dc.compiladores.makaforms;
 import br.ufscar.dc.compiladores.makaforms.makaformsParser.ProgramaContext;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
@@ -80,6 +81,15 @@ public class Principal {
                 }   
 
                 saida.write(("Fim da compilacao\n").getBytes());               
+            }
+            else
+            {
+                Gerador gerador = new Gerador();
+                gerador.visitPrograma(arvore);
+                try(PrintWriter pw = new PrintWriter(args[1]))
+                {
+                    pw.print(gerador.saida.toString());
+                }
             }
         }
         saida.close();

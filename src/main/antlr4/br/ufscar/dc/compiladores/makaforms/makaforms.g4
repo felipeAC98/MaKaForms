@@ -46,19 +46,21 @@ botao: 'botao' CADEIA;
 corpo: (cmp)*;
 
 //Campos do HTML
-cmp: 'campo' (cmpTexto | cmpSenha | cmpData | cmpEmail | cmpEUnica | cmpEMultipla
-    );
+cmp: 'campo' (cmpTexto | cmpSenha | cmpData | cmpEmail | cmpEUnica | cmpEMultipla | cmpArquivo | cmpCaixaTexto);
 
+//Campos e itens de campos seram tratados da mesma forma, serao definidos por um identificador e a expressao referente a ele que sera seu conteudo
+identCampo: identificador ':' expressao ; 
+item: identCampo;
 cmpTexto: '_texto' identCampo;
 cmpSenha: '_senha' identCampo;
 cmpData: '_data' identCampo;
 cmpEmail: '_email' identCampo;
 cmpEUnica: '_escolhaUnica' item (',' item)* identCampo;
 cmpEMultipla: '_escolhaMultipla' item (',' item)* identCampo;
-
-//Campos e itens de campos seram tratados da mesma forma, serao definidos por um identificador e a expressao referente a ele que sera seu conteudo
-identCampo: identificador ':' expressao ; 
-item: identCampo;
+cmpArquivo: '_arquivo' 'foto'|'pdf' 'um'|'multiplos' identCampo;
+cmpCaixaTexto: '_caixaTexto' tamanhoVertical tamanhoHorizontal identCampo;
+tamanhoVertical: NUM_INT;
+tamanhoHorizontal: NUM_INT;
 
 expressao: CADEIA;
 
