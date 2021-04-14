@@ -36,14 +36,11 @@ public class MKFErrorListener extends BaseErrorListener{
         // verificação para apresentar apenas a primeira mensagem de erro
         //pois uma vez que é encontrado um erro o resto torna-se irrelevante
         if (nErrosObtidos < maxErrosEsperados){
-            try {
                 //quando o erro está próximo a EOF, o erro é pegado como <EOF>
                 //então modificamos a mensagem para ficar correta
-                this.saida.write(("Linha " + line + ": erro sintatico proximo a " + ("<EOF>".equals(erroEncontrado) ? "EOF" : erroEncontrado) + "\n").getBytes());
-            } catch (IOException ex) {
-                Logger.getLogger(MKFErrorListener.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
+                String mensagem="erro sintatico proximo a " + ("<EOF>".equals(erroEncontrado) ? "EOF" : erroEncontrado);
+                SemanticoUtils.adicionarErroSemantico((Token)offendingSymbol, mensagem);  
+
             nErrosObtidos=nErrosObtidos+1;
         }
     }   
