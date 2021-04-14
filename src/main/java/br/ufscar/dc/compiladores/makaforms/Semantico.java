@@ -52,6 +52,19 @@ public class Semantico extends makaformsBaseVisitor{
          return visitChildren(ctx); 
      }
      
+     
+     @Override public Object visitCorHexa(makaformsParser.CorHexaContext ctx) { 
+         
+         String corHexa=ctx.COR_HEXA().getText();
+         
+         if(corHexa.length()>6){
+            String mensagem=" cor " + corHexa  + " invalida";
+            SemanticoUtils.adicionarErroSemantico(ctx.getStart(), mensagem);
+         }
+         return visitChildren(ctx); 
+     }
+     
+     
      /*@Override 
      public Object visitBotao(makaformsParser.BotaoContext ctx) { 
           

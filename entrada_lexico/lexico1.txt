@@ -1,4 +1,6 @@
 inicioFormulario
+corBackground #FA2FFF
+corFonte #AFF3
 titulo "Cadastro de pessoa"
 campo _texto nome:"Nome"
 campo _texto sobrenome:"Sobrenome"
