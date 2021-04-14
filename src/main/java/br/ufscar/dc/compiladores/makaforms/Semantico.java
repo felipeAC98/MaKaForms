@@ -32,7 +32,14 @@ public class Semantico extends makaformsBaseVisitor{
          
          String identificador=ctx.identificador().getText();
          
-         System.out.println("identificador: "+identificador); 
+         //System.out.println("identificador: "+identificador); 
+         
+         //Insercao de regra para verificacao de underscore nos identificadores
+         //Um identificador nao pode ter um underscore devido a logica de criacao de identificadores vinculados a seus campos no gerador de HTML
+         if(identificador.contains("_")){
+            String mensagem=identificador+" - identificadores nao podem possuir underscore '_' ";
+            SemanticoUtils.adicionarErroSemantico(ctx.identificador().getStart(), mensagem); 
+         }
          
          //Verificando se identificador ja consta na tabela
          if(tabela.existe(identificador)==false){

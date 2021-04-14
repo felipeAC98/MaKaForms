@@ -9,7 +9,7 @@ PALAVRAS_CHAVE: 'inicioFormulario' | 'fimFormulario' | 'campo' | 'botao' |
                 'pdf' | 'um' | 'multiplos';
 
 /* define identificadores das opções de algum campo, pode conter letras, números, caracteres especiais e espaço"*/
-IDENT: ('A'..'Z' | 'a'..'z' | '_' )('A'..'Z' | 'a'..'z' | '_')*;
+IDENT: ('A'..'Z' | 'a'..'z' | '_')('A'..'Z' | 'a'..'z'| '_')*;
 
 /* define cadeias da linguagem  */
 /* sequencia ao longo do algoritmo que necessariamente comeca e finaliza com aspas  */
