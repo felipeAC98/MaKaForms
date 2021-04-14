@@ -51,6 +51,33 @@ public class Semantico extends makaformsBaseVisitor{
          }
          return visitChildren(ctx); 
      }
+     
+     /*@Override 
+     public Object visitBotao(makaformsParser.BotaoContext ctx) { 
+          
+         System.out.println("aqui: ");
+         //Verificando se identificador ja consta na tabela
+         if(tabela.existe("botao")==false){
+             tabela.adicionar("botao");
+         }
+         else{
+            String mensagem=" botao ja adicionado no formulario";
+            SemanticoUtils.adicionarErroSemantico(ctx.getStart(), mensagem); 
+         }        
+         
+         return visitChildren(ctx);      
+     }
+     
+     @Override 
+     public Object visitCorpo(makaformsParser.CorpoContext ctx) { 
+     
+         if(ctx.botao()==null){
+            String mensagem=" nenhum botao adicionado ao formulario";
+            SemanticoUtils.adicionarErroSemantico(ctx.getStart(), mensagem);           
+         }
+         return visitChildren(ctx); 
+     
+     }*/
     
 }
 

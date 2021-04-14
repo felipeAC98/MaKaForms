@@ -36,14 +36,14 @@ WS: [ \t\r\n]+ -> skip;
 
 //Inicio do sintatico
 
-programa: 'inicioFormulario' titulo corpo botao'fimFormulario';
+programa: 'inicioFormulario' titulo corpo botao 'fimFormulario';
 
 titulo: 'titulo' CADEIA;
 
+corpo: (cmp)* ;
+
 //Botao de envio
 botao: 'botao' CADEIA;
-
-corpo: (cmp)*;
 
 //Campos do HTML
 cmp: 'campo' (cmpTexto | cmpSenha | cmpData | cmpEmail | cmpEUnica | cmpEMultipla | cmpArquivo | cmpCaixaTexto);
