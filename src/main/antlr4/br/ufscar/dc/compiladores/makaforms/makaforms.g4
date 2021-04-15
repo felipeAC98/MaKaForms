@@ -56,7 +56,7 @@ botao: 'botao' CADEIA;
 //Definicoes de cores
 
 //Campos do HTML
-cmp: 'campo' (cmpTexto | cmpSenha | cmpData | cmpEmail | cmpEUnica | cmpEMultipla | cmpArquivo | cmpCaixaTexto);
+cmp: defcmp='campo' (cmpTexto | cmpSenha | cmpData | cmpEmail | cmpEUnica | cmpEMultipla | cmpArquivo | cmpCaixaTexto) placeHolder?;
 
 //Campos e itens de campos seram tratados da mesma forma, serao definidos por um identificador e a expressao referente a ele que sera seu conteudo
 identCampo: identificador ':' expressao ; 
@@ -71,6 +71,8 @@ cmpArquivo: '_arquivo' 'foto'|'pdf' 'um'|'multiplos' identCampo;
 cmpCaixaTexto: '_caixaTexto' tamanhoVertical tamanhoHorizontal identCampo;
 tamanhoVertical: NUM_INT;
 tamanhoHorizontal: NUM_INT;
+
+placeHolder: CADEIA;
 
 expressao: CADEIA;
 
