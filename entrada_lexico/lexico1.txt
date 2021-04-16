@@ -1,13 +1,14 @@
 inicioFormulario
+corBackground #FAAAFF
+corFonte #AFF3
 titulo "Cadastro de pessoa"
-campo _texto nome:"Nome"
-campo _texto sobrenome:"Sobrenome"
-campo _email email:"Email"
+campo _texto nome:"Nome" "placeholder"
+campo _texto sobrenome:"Sobrenome" "placeholder"
+campo _email email:"Email" "placeholder"
 campo _senha senha:"Senha"
 campo _data dtNascimento:"Data de nascimento"
 campo _escolhaUnica feminino:"Feminino", masculino:"Masculino", outro:"Outro" genero:"Gênero"
 campo _escolhaMultipla gato:"Gato", cachorro:"Cachorro", passaro:"Pássaro", peixe:"Peixe", outros:"Outro" pet:"Animal de estimação"
-campo _arquivo foto um fotoperfil:"Foto de perfil"
-campo _caixaTexto 10 20 descricao:"Descrição"
+campo _caixaTexto 10 20 descricao:"Descrição" "placeholder"
 botao "Cadastrar"
 fimFormulario

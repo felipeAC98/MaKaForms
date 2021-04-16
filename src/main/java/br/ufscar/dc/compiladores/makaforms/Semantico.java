@@ -52,6 +52,40 @@ public class Semantico extends makaformsBaseVisitor{
          return visitChildren(ctx); 
      }
      
+     
+     @Override public Object visitCorHexa(makaformsParser.CorHexaContext ctx) { 
+         
+         String corHexa=ctx.COR_HEXA().getText();
+         
+         if(corHexa.length()>7){
+            String mensagem=" cor " + corHexa  + " invalida";
+            SemanticoUtils.adicionarErroSemantico(ctx.getStart(), mensagem);
+         }
+         return visitChildren(ctx); 
+     }
+     
+     @Override public Object visitCmp(makaformsParser.CmpContext ctx) { 
+         
+         //Verificando se o placeholder deve existir para um campo em especifico
+         if(ctx.placeHolder()!=null){
+             
+             if(ctx.cmpEMultipla()!=null || ctx.cmpEUnica()!=null || ctx.cmpSenha()!=null || ctx.cmpData()!=null){
+                String mensagem="PlaceHolder nao permitido para este campo";
+                SemanticoUtils.adicionarErroSemantico(ctx.placeHolder().getStart(), mensagem);                  
+             }
+             
+         }
+         else{
+              if(ctx.cmpCaixaTexto()!=null || ctx.cmpTexto()!=null || ctx.cmpEmail()!=null){
+                String mensagem="PlaceHolder nao definido";
+                SemanticoUtils.adicionarErroSemantico(ctx.defcmp, mensagem);                  
+             }
+         }
+         
+         return visitChildren(ctx); 
+     }
+     
+     
      /*@Override 
      public Object visitBotao(makaformsParser.BotaoContext ctx) { 
           

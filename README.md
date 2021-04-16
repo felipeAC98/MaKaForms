@@ -1,28 +1,62 @@
 # MaKaForms
 
-### Autores: 
+## Autores
 
   Felipe Alves      RA: 744335
   
   Mariana Zagatti   RA: 628620
   
-### Descrição:
+## Sobre
 
 Trabalho realizado para a disciplina de Construção de Compiladores, com o professor Daniel Lucrédio.
 
-A linguagem MaKaForms é destinada a facilitar a criação de formulários HTML, transformando as tags HTML em comandos de apenas uma linha.
-
-### Vídeo descritivo
+## Vídeo descritivo
 
 
 
-### Descrição detalhada
+## Descrição
 
-### Como compilar o compilador
+A linguagem MaKaForms é destinada a facilitar a criação de formulários HTML, transformando comandos de apenas uma linha em formulários completos.
 
-### Como compilar o código
+## Como compilar o compilador
 
-### Exemplos de uso (casos de teste)
+Caso o usuário queira modificar o código do compilador, os autores sugerem que seja instalado o software Apache Netbeans 12. É possível fazer seu download no site oficial clicando [aqui](https://netbeans.apache.org/download/index.html).
 
+Durante a instalação, deve-se optar por instalar o plugin para a ferramenta Apache Maven.
 
+Em seguida, o usuário precisa clonar o projeto em sua máquina utilizando a ferramenta Git, ou fazer o download do .zip e descompactá-lo em um diretório, para então poder modificá-lo no Netbeans.
+
+Deve-se lembrar de, sempre que fizer alguma modificação no código e quiser testá-lo, dar um build no projeto. A tecla F11 funciona como um atalho para essa função.
+
+Em seguida, para rodá-lo, deve-se seguir as instruções da seção abaixo.
+
+## Como compilar o código
+
+Caso o usuário queira usar o compilador, pode-se fazer o download do [arquivo .jar](https://github.com/felipeAC98/MaKaForms/blob/master/target/MakaForms-1.0-SNAPSHOT-jar-with-dependencies.jar). Para executá-lo, deve ser utilizado no Prompt de Comando do Windows o comando abaixo. Nota-se que o usuário deve ter instalado em sua máquina o Java, e sua variável de ambiente deve estar configurada.
+
+> java -jar "parâmetro 1" "parâmetro 2" "parâmetro 3"
+
+O parâmetro 1 trata-se do caminho do arquivo .jar, o parâmetro 2 é o arquivo .txt de entrada, com o código na linguagem MaKaForms, e o parâmetro 3 é o arquivo .html que terá como saída o formulário. Abaixo, é apresentado um exemplo real de uso do comando.
+
+> java -jar MakaForms-1.0-SNAPSHOT-jar-with-dependencies.jar entrada_makaforms.txt saida_html.html
+
+## Exemplos de uso (casos de teste)
+
+A estrutura do código deve sempre ser iniciada com a palavra reservada ***inicioFormulario***, e finalizada com ***fimFormulario***.
+
+Todo formulário deve conter, logo após ***inicioFormulario***, um título, no formato ***titulo "cadeira de caracteres"***, e um botao, logo acima de ***fimFormulario***, no formato ***botao "cadeia de caracteres"***.
+
+Segue abaixo um exemplo das instruções acima.
+
+>inicioFormulario
+>
+>titulo "Cadastro de pessoa"
+>
+>***comandos***
+>
+>botao "Cadastrar"
+>
+>fimFormulario
+
+Onde há a palavra ***comandos*** no exemplo acima, devem estar os campos desejados no formulário. Existem oito tipos de campos: ***_texto***, ***_email***, ***_senha***, ***_data***, ***_escolhaUnica***, ***_escolhaMultipla***, ***_arquivo*** e ***_caixaTexto***.
 

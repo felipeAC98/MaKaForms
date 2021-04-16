@@ -6,7 +6,7 @@ grammar makaforms;
 PALAVRAS_CHAVE: 'inicioFormulario' | 'fimFormulario' | 'campo' | 'botao' |
                 '_texto' | '_senha'| '_data' | '_email' | 'escolhaUnica' |
                 '_escolhaMultipla' | '_arquivo' | '_caixaTexto' | 'foto' | 
-                'pdf' | 'um' | 'multiplos';
+                'pdf' | 'um' | 'multiplos' | 'corBackground' | 'corFonte';
 
 /* define identificadores das opções de algum campo, pode conter letras, números, caracteres especiais e espaço"*/
 IDENT: ('A'..'Z' | 'a'..'z' | '_')('A'..'Z' | 'a'..'z'| '_')*;
@@ -24,7 +24,7 @@ ERRO_CADEIA: '"'(~('"'|'\n'))*;
 NUM_INT: ('0'..'9')+; 
 
 /* define caracteres que nao sao letras */
-SIMBOLOS: ':' | ',' | '(' | ')'; 
+SIMBOLOS: ':' | ',' | '(' | ')' | '#'; 
 
 /* definicao para erro - simbolo nao identificado, nao faz parte da linguagem  */
 ERRO_SIMBOLO: SIMBOLO_NAODEFINIDO | '}'; 
@@ -32,11 +32,19 @@ ERRO_SIMBOLO: SIMBOLO_NAODEFINIDO | '}';
 /* definicao para erro - simbolo nao identificado, nao faz parte da linguagem  */
 SIMBOLO_NAODEFINIDO:'@' | '$' | '¨' | '~' | '!' | ';' | '%' | '?'| '|' | '=' | '[' | ']' | '^'  | '-' | '&' | '..' ; 
 
+//Definicao para numero hexadecimal
+COR_HEXA: '#' (NUM_INT | 'A'..'F' | 'a'..'f')*; 
+
 WS: [ \t\r\n]+ -> skip;    
 
 //Inicio do sintatico
 
-programa: 'inicioFormulario' titulo corpo botao 'fimFormulario';
+programa: 'inicioFormulario' corBackground corFonte titulo corpo botao 'fimFormulario';
+
+//Definicoes de algumas cores para o HTML
+corBackground: 'corBackground' corHexa;
+corFonte: 'corFonte' corHexa;
+corHexa: COR_HEXA;
 
 titulo: 'titulo' CADEIA;
 
@@ -45,8 +53,10 @@ corpo: (cmp)* ;
 //Botao de envio
 botao: 'botao' CADEIA;
 
+//Definicoes de cores
+
 //Campos do HTML
-cmp: 'campo' (cmpTexto | cmpSenha | cmpData | cmpEmail | cmpEUnica | cmpEMultipla | cmpArquivo | cmpCaixaTexto);
+cmp: defcmp='campo' (cmpTexto | cmpSenha | cmpData | cmpEmail | cmpEUnica | cmpEMultipla | cmpArquivo | cmpCaixaTexto) placeHolder?;
 
 //Campos e itens de campos seram tratados da mesma forma, serao definidos por um identificador e a expressao referente a ele que sera seu conteudo
 identCampo: identificador ':' expressao ; 
@@ -61,6 +71,8 @@ cmpArquivo: '_arquivo' (foto='foto' | pdf='pdf') ('um'|'multiplos') identCampo;
 cmpCaixaTexto: '_caixaTexto' tamanhoVertical tamanhoHorizontal identCampo;
 tamanhoVertical: NUM_INT;
 tamanhoHorizontal: NUM_INT;
+
+placeHolder: CADEIA;
 
 expressao: CADEIA;
 
