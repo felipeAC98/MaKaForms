@@ -8,7 +8,15 @@
   
 ## Sobre
 
-Trabalho realizado para a disciplina de Construção de Compiladores, com o professor Daniel Lucrédio.
+Trabalho realizado para a disciplina Construção de Compiladores, com o professor Daniel Lucrédio.
+
+O trabalho consiste em um compilador completo para a linguagem de programação criada. Ele realiza as análises léxica, sintática e semântica do código, indicando possíveis erros, e gera o código equivalente em HTML.
+
+O analisador léxico *faz o que???* . Na pasta [entrada_lexico](https://github.com/felipeAC98/MaKaForms/tree/master/entrada_lexico) encontram-se alguns exemplos de códigos com erros léxicos.
+
+Já o analisador sintático *faz o que???* . Na pasta [entrada_sintatico](https://github.com/felipeAC98/MaKaForms/tree/master/entrada_sintatico) encontram-se alguns exemplos de códigos com erros sintáticos.
+
+Por fim, o analisador semântico *faz o que???* . Na pasta [entrada_semantico](https://github.com/felipeAC98/MaKaForms/tree/master/entrada_semantico) encontram-se alguns exemplos de códigos com erros semânticos.
 
 ## Vídeo descritivo
 
@@ -16,7 +24,7 @@ Trabalho realizado para a disciplina de Construção de Compiladores, com o prof
 
 ## Descrição
 
-A linguagem MaKaForms é destinada a facilitar a criação de formulários HTML, transformando comandos de apenas uma linha em formulários completos.
+A linguagem MaKaForms é destinada a facilitar a criação de formulários HTML, transformando comandos de apenas uma linha em formulários completos. Com ela, é possível criar formulários com diversos tipos de inputs, além de personalizar a cor do background e a cor da fonte, sem se preocupar com os demais aspectos da estrutura HTML.
 
 ## Como compilar o compilador
 
@@ -60,3 +68,43 @@ Segue abaixo um exemplo das instruções acima.
 
 Onde há a palavra ***comandos*** no exemplo acima, devem estar os campos desejados no formulário. Existem oito tipos de campos: ***_texto***, ***_email***, ***_senha***, ***_data***, ***_escolhaUnica***, ***_escolhaMultipla***, ***_arquivo*** e ***_caixaTexto***.
 
+>***_texto*** define um campo de texto de apenas uma linha
+>
+>***_email*** define um campo para um endereço de email
+>
+>***_senha*** define um campo para uma senha
+>
+>***_data*** define um controle para data, com dia, mês e ano
+>
+>***_escolhaUnica*** define um campo em que o usuário pode selecionar apenas uma opção
+>
+>***_escolhaMultipla*** define um campo em que o usuário pode selecionar uma ou mais opções
+>
+>***_arquivo*** define um campo para selecionar um arquivo
+>
+>***_caixaTexto*** define uma caixa de texto
+>
+
+Os comandos para definir campos seguem o padrão abaixo:
+
+>campo _nome_do_campo id_do_campo:"label_do_campo"
+
+Por exemplo:
+
+>campo _texto nome:"Nome"
+
+Alguns dos campos ainda apresentam algumas particularidades. _tem que falar do placeholde aqui_
+
+Para criar um campo ***_escolhaMultipla*** ou um ***_escolhaUnica***, você deve especificar as opções entre aspas, junto com seus identificadores, como no exemplo abaixo.
+
+>campo _escolhaMultipla gato:"Gato", cachorro:"Cachorro", passaro:"Pássaro", peixe:"Peixe", outros:"Outro" pet:"Animal de estimação"
+
+Para um campo do tipo ***_arquivo***, deve-se optar se o usuário poderá escolher apenas um ou mais arquivos, e se os arquivos a serem escolhidos serão fotos ou PDFs. Abaixo, há um exemplo. A palavra ***foto*** pode ser trocada por ***pdf***, e ***um*** pode ser trocada por ***multiplos***.
+
+>campo _arquivo foto um fotoperfil:"Foto de perfil"
+
+Para o campo ***_caixaTexto***, deve-se colocar logo em seguida a quantidade de linhas e a quantidade de colunas desejadas no campo de texto. Por exemplo:
+
+> campo _caixaTexto 10 100 descricao:"Descrição"
+
+Abaixo, há um exemplo de código inteiro escrito na linguagem MKForms. Esse código gera a seguinte página HTML.
