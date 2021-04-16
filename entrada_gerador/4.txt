@@ -1,0 +1,9 @@
+inicioFormulario
+titulo "Marcar reposição de aula"
+campo _escolhaUnica inglês, espanhol, alemão, francês, italiano "Aula"
+campo _data "Data da aula perdida"
+campo _data "Data da reposição"
+campo _caixaTexto "Motivo da falta"
+campo _arquivo pdf multiplos "Comprovantes"
+botao "Confirmar"
+fimFormulario

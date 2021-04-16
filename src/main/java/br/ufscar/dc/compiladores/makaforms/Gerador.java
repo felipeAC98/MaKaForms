@@ -26,6 +26,7 @@ public class Gerador extends makaformsBaseVisitor<Void>{
         
         visitTitulo(ctx.titulo());
         visitCorpo(ctx.corpo());
+        visitBotao(ctx.botao());
         
         saida.append("\t\t</form>\n");
         saida.append("\t</body>\n");
@@ -164,22 +165,45 @@ public class Gerador extends makaformsBaseVisitor<Void>{
     @Override
     public Void visitCmpArquivo(makaformsParser.CmpArquivoContext ctx)
     {
-        //visitExpressao(ctx.identCampo().expressao());
-        saida.append("\t\t\t<input type=\"file\">\n");
+        String [] nome = ctx.identCampo().expressao().CADEIA().getText().split("\"");
+        saida.append("\t\t\t" + nome[1] + "<br>\n");
+        
+        saida.append("\t\t\t<input type=\"file\"");
+        if(ctx.foto == null)
+        {
+            saida.append(" accept=\".pdf\" ");
+        }
+        else
+        {
+            saida.append(" accept=\"image/*\" ");
+        }
+        saida.append(">\n");
         return null;
     }
     
     @Override
     public Void visitCmpCaixaTexto(makaformsParser.CmpCaixaTextoContext ctx)
     {
-        visitExpressao(ctx.identCampo().expressao());
+        String [] nome = ctx.identCampo().expressao().CADEIA().getText().split("\"");
+        saida.append("\t\t\t" + nome[1] + "<br>\n");
+        
         saida.append("\t\t\t<textarea ");
         saida.append("rows = \"");
         saida.append(ctx.tamanhoVertical().NUM_INT().getText());
         saida.append("\" cols = \"");
         saida.append(ctx.tamanhoHorizontal().NUM_INT().getText());
         saida.append("\">");
-        saida.append(">\n");
+        saida.append("</textarea>\n\n");
+        return null;
+    }
+    
+    @Override
+    public Void visitBotao(makaformsParser.BotaoContext ctx)
+    {
+        saida.append("\t\t\t<button>");
+        String [] nome = ctx.CADEIA().getText().split("\"");
+        saida.append(nome[1]);
+        saida.append("</button>\n\n");
         return null;
     }
 }

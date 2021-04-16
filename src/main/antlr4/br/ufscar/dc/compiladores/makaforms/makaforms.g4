@@ -57,7 +57,7 @@ cmpData: '_data' identCampo;
 cmpEmail: '_email' identCampo;
 cmpEUnica: '_escolhaUnica' item (',' item)* identCampo;
 cmpEMultipla: '_escolhaMultipla' item (',' item)* identCampo;
-cmpArquivo: '_arquivo' 'foto'|'pdf' 'um'|'multiplos' identCampo;
+cmpArquivo: '_arquivo' (foto='foto' | pdf='pdf') ('um'|'multiplos') identCampo;
 cmpCaixaTexto: '_caixaTexto' tamanhoVertical tamanhoHorizontal identCampo;
 tamanhoVertical: NUM_INT;
 tamanhoHorizontal: NUM_INT;

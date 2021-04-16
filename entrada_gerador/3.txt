@@ -1,0 +1,12 @@
+inicioFormulario
+titulo "Fazer um pedido - Macarronato"
+campo _texto nome:"Nome"
+campo _texto sobre:"Sobrenome"
+campo _texto cpf:"CPF"
+campo _texto tele:"Telefone"
+campo _caixaTexto 10 20 end:"Endereço completo"
+campo _escolhaUnica mac:"Macarrão", esc:"Escondidinho", nhoque:"Nhoque", tap:"Tapioca" refeicao:"Prato"
+campo _escolhaMultipla c:"Carne", f:"Frango", l:"Linguiça calabresa", cg:"Cogumelo", e:"Ervilha", m:"Milho", t:"Tomate seco" ad:"Adicionais"
+campo _escolhaUnica casa:"Receber em casa", ret:"Retirar no restaurante", ref:"Refeição no restaurante" tipo:"Tipo de pedido"
+botao "Fazer pedido"
+fimFormulario
