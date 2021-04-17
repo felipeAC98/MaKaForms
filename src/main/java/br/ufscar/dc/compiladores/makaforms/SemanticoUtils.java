@@ -22,7 +22,7 @@ public class SemanticoUtils {
     {
         int linha = t.getLine();
         int coluna = t.getCharPositionInLine();
-        System.out.println("erro adicionado"); 
+        //System.out.println("erro adicionado"); 
         errosSemanticos.add(String.format("Linha %d: %s", linha, mensagem));
     }
     
