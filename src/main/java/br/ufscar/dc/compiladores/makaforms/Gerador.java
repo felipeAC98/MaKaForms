@@ -17,10 +17,61 @@ public class Gerador extends makaformsBaseVisitor<Void>{
         saida = new StringBuilder();
     }
     
+    String placeholder = "";
+    
+    @Override
+    public Void visitPlaceHolder(makaformsParser.PlaceHolderContext ctx) {
+        if (ctx.CADEIA() != null)
+        {
+            placeholder = ctx.CADEIA().getText();
+        }
+        return null;
+    }
+    
+    @Override
+    public Void visitCmp(makaformsParser.CmpContext ctx) {
+        if(ctx.placeHolder() != null)
+            visitPlaceHolder(ctx.placeHolder());
+        if(ctx.cmpTexto() != null)
+            visitCmpTexto(ctx.cmpTexto());
+        else if(ctx.cmpSenha() != null)
+            visitCmpSenha(ctx.cmpSenha());
+        else if(ctx.cmpData() != null)
+            visitCmpData(ctx.cmpData());
+        else if(ctx.cmpEmail() != null)
+            visitCmpEmail(ctx.cmpEmail());
+        else if(ctx.cmpEUnica() != null)
+            visitCmpEUnica(ctx.cmpEUnica());
+        else if(ctx.cmpEMultipla() != null)
+            visitCmpEMultipla(ctx.cmpEMultipla());
+        else if(ctx.cmpArquivo() != null)
+            visitCmpArquivo(ctx.cmpArquivo());
+        else if(ctx.cmpCaixaTexto() != null)
+            visitCmpCaixaTexto(ctx.cmpCaixaTexto());
+        
+        return null;
+    }
+    
     @Override
     public Void visitPrograma(makaformsParser.ProgramaContext ctx) {
         saida.append("<!DOCTYPE html>\n");
         saida.append("<html>\n");
+        
+        saida.append("\t<head>\n");
+        
+        saida.append("\t\t\t<style>\n");
+        
+        saida.append("\t\t\tbody {\n");
+        
+        visitCorBackground(ctx.corBackground());
+        visitCorFonte(ctx.corFonte());
+        
+        saida.append("\t\t\t}\n");
+        
+        saida.append("\t\t\t</style>\n");
+        
+        saida.append("\t</head>\n");
+        
         saida.append("\t<body>\n");
         saida.append("\t\t<form>\n");
         
@@ -31,6 +82,24 @@ public class Gerador extends makaformsBaseVisitor<Void>{
         saida.append("\t\t</form>\n");
         saida.append("\t</body>\n");
         saida.append("</html>\n");
+        return null;
+    }
+    
+    @Override
+    public Void visitCorBackground(makaformsParser.CorBackgroundContext ctx)
+    {
+        saida.append("\t\t\t\tbackground-color: ");
+        saida.append(ctx.corHexa().getText());
+        saida.append(";\n");
+        return null;
+    }
+    
+    @Override
+    public Void visitCorFonte(makaformsParser.CorFonteContext ctx)
+    {
+        saida.append("\t\t\t\tcolor: ");
+        saida.append(ctx.corHexa().getText());
+        saida.append(";\n");
         return null;
     }
     
@@ -48,6 +117,7 @@ public class Gerador extends makaformsBaseVisitor<Void>{
     {
         for(Integer i = 0; i < ctx.cmp().size(); i ++)
         {
+            placeholder = "";
             visitCmp(ctx.cmp(i));
             saida.append("\t\t\t<br><br>\n");
         }
@@ -64,7 +134,9 @@ public class Gerador extends makaformsBaseVisitor<Void>{
         saida.append("\">" + nome[1] + "</label><br>\n");
         saida.append("\t\t\t<input type=\"text\" id=\"");
         saida.append(ctx.identCampo().identificador().IDENT().getText());
-        saida.append("\">\n\n");
+        saida.append("\" placeholder=");
+        saida.append(placeholder);
+        saida.append(">\n\n");
         return null;
     }
     
@@ -106,7 +178,9 @@ public class Gerador extends makaformsBaseVisitor<Void>{
         saida.append("\">" + nome[1] + "</label><br>\n");
         saida.append("\t\t\t<input type=\"email\" id=\"");
         saida.append(ctx.identCampo().identificador().IDENT().getText());
-        saida.append("\">\n\n");
+        saida.append("\" placeholder=");
+        saida.append(placeholder);
+        saida.append(">\n\n");
         return null;
     }
     
@@ -193,6 +267,12 @@ public class Gerador extends makaformsBaseVisitor<Void>{
         saida.append("\" cols = \"");
         saida.append(ctx.tamanhoHorizontal().NUM_INT().getText());
         saida.append("\">");
+        if(placeholder != "")
+        {
+            String [] texto;
+            texto = placeholder.split("\"");
+            saida.append(texto[1]);
+        }
         saida.append("</textarea>\n\n");
         return null;
     }

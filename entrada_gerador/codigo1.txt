@@ -1,0 +1,14 @@
+inicioFormulario
+corBackground #FAAAFF
+corFonte #AFF3FF
+titulo "Cadastro de pessoa"
+campo _texto nome:"Nome" "Insira um nome"
+campo _texto sobrenome:"Sobrenome" "Insira um sobrenome"
+campo _email email:"Email" "Insira um email"
+campo _senha senha:"Senha"
+campo _data dtNascimento:"Data de nascimento"
+campo _escolhaUnica feminino:"Feminino", masculino:"Masculino", outro:"Outro" genero:"Gênero"
+campo _escolhaMultipla gato:"Gato", cachorro:"Cachorro", passaro:"Pássaro", peixe:"Peixe", outros:"Outro" pet:"Animal de estimação"
+campo _caixaTexto 10 20 descricao:"Descrição" "Insira uma descricao"
+botao "Cadastrar"
+fimFormulario

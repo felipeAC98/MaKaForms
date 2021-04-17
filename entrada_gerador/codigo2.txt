@@ -1,0 +1,14 @@
+inicioFormulario
+corBackground #FAAAFF
+corFonte #AFF3
+titulo "Cadastrar currículo para estágio"
+campo _texto nome:"Nome Completo" "Insira um nome"
+campo _data dtNascimento:"Data de nascimento"
+campo _texto universidade:"Universidade" "Insira sua universidade"
+campo _texto curso:"Curso" "Insira seu curso"
+campo _data dtPrev:"Data prevista de conclusão do curso"
+campo _caixaTexto 10 20 experiencias:"Experiências" "Insira suas experiencias"
+campo _arquivo _pdf um curriculum:"Curriculum vitae"
+campo _arquivo _pdf um carta:"Carta de motivação"
+botao "Enviar"
+fimFormulario

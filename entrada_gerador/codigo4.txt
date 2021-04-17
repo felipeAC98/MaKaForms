@@ -1,0 +1,9 @@
+inicioFormulario
+corBackground #FAAAFF
+corFonte #AFF3
+titulo "Bilheteria"
+campo _texto nome:"Nome Completo" "Insira seu nome completo"
+campo _data data:"Data do show"
+campo _escolhaUnica u2:"U2", capInicial:"Capital Inicial", greenD:"Green Day", tOffs:"The Offspring", muse:"Muse", pitty:"Pitty" banda:"Banda"
+botao "Reservar ingresso"
+fimFormulario

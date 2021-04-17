@@ -1,9 +1,0 @@
-inicioFormulario
-corBackground #FAAAFF
-corFonte #AFF3
-titulo "Pesquisar passagem de ônibus"
-campo _data data:"Data da viagem"
-campo _escolhaUnica sp:"São Paulo", sCarlos:"São Carlos", araraquara:"Araraquara" origem:"Origem"
-campo _escolhaUnica rj:"Rio de Janeiro", floripa:"Florianópolis", bh:"Belo Horizonte" destino:"Destino"
-botao "Pesquisar"
-fimFormulario
