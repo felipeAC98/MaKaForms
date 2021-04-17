@@ -20,11 +20,13 @@ public class Principal {
         CharStream cs= CharStreams.fromFileName(args[0]);       //utilizado para leitura do arquivo passado como entrada contendo codigo com programa em linguagem algoritmica 
         makaformsLexer lex = new makaformsLexer(cs); 
         FileOutputStream saida = new FileOutputStream(args[1]); //utilizado para escrita no arquivo de saida apos analisa lexica
-        Token aux = null;   //token auxiliar para analise
+        Token aux = null;                                       //token auxiliar para analise
+        
+        //Definicoes para verificacoes de sintaxe
         CommonTokenStream tokens = new CommonTokenStream(lex);   
         makaformsParser parser = new makaformsParser(tokens);
-        int maxErrosEsperados =1;
-        MKFErrorListener MKEL = new MKFErrorListener(saida, maxErrosEsperados); 
+        int maxErrosEsperados =1;                                                //Maximo de erros sintaticos esperados pela linguagem para entao retornar o erro ao usuario
+        MKFErrorListener MKEL = new MKFErrorListener(saida, maxErrosEsperados);  //Criando listener para erros sintaticos
         
         //Variavel para armazenar a ocorrencia de erro
         Boolean ERROR = false;
@@ -35,15 +37,13 @@ public class Principal {
             //para formacao da parte direita do token
             String direita_token = aux.getText(); // usada para montagem do token <getText(),direita_token>
             
-            // verifica se foi identificado algum identificador, cadeia, numero inteiro ou numero real definido pela gramatica
-            
+            // verificando se teve algum erro lexico
             switch (makaformsLexer.VOCABULARY.getDisplayName(aux.getType())) {
                 case "ERRO_SIMBOLO":
                     saida.write(("Linha " + aux.getLine() + ": " + aux.getText() + " - simbolo nao identificado\n").getBytes());    //imprime a linha de erro e o tipo de erro
                     ERROR=true;
                     break;
                 
-                //Ainda nao definida a forma de comentarios da linguagem
                 case "COMENTARIO_ERRADO":
                     saida.write(("Linha " + aux.getLine() + ": comentario nao fechado\n").getBytes());    //imprime a linha de erro e o tipo de erro
                     ERROR=true;

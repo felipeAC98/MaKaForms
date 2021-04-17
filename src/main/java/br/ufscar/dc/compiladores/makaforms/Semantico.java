@@ -55,9 +55,11 @@ public class Semantico extends makaformsBaseVisitor{
      
      @Override public Object visitCorHexa(makaformsParser.CorHexaContext ctx) { 
          
+         //Verificando se foi tokenizada corretamente a cor em hexa
          if(ctx.COR_HEXA()!=null){
             String corHexa=ctx.COR_HEXA().getText();
 
+            //Contando com o # uma cor em hexa deve ter no maximo 7 caracteres para ser valida
             if(corHexa.length()>7){
                String mensagem=" cor " + corHexa  + " invalida";
                SemanticoUtils.adicionarErroSemantico(ctx.getStart(), mensagem);
@@ -75,6 +77,7 @@ public class Semantico extends makaformsBaseVisitor{
          //Verificando se o placeholder deve existir para um campo em especifico
          if(ctx.placeHolder()!=null){
              
+             //Estes campos nao devem possuir placeholder
              if(ctx.cmpEMultipla()!=null || ctx.cmpEUnica()!=null || ctx.cmpSenha()!=null || ctx.cmpData()!=null){
                 String mensagem="PlaceHolder nao permitido para este campo";
                 SemanticoUtils.adicionarErroSemantico(ctx.placeHolder().getStart(), mensagem);                  
@@ -82,6 +85,7 @@ public class Semantico extends makaformsBaseVisitor{
              
          }
          else{
+             //Estes campos devem possuir placeholder
               if(ctx.cmpCaixaTexto()!=null || ctx.cmpTexto()!=null || ctx.cmpEmail()!=null){
                 String mensagem="PlaceHolder nao definido";
                 SemanticoUtils.adicionarErroSemantico(ctx.defcmp, mensagem);                  
@@ -90,34 +94,6 @@ public class Semantico extends makaformsBaseVisitor{
          
          return visitChildren(ctx); 
      }
-     
-     
-     /*@Override 
-     public Object visitBotao(makaformsParser.BotaoContext ctx) { 
-          
-         System.out.println("aqui: ");
-         //Verificando se identificador ja consta na tabela
-         if(tabela.existe("botao")==false){
-             tabela.adicionar("botao");
-         }
-         else{
-            String mensagem=" botao ja adicionado no formulario";
-            SemanticoUtils.adicionarErroSemantico(ctx.getStart(), mensagem); 
-         }        
-         
-         return visitChildren(ctx);      
-     }
-     
-     @Override 
-     public Object visitCorpo(makaformsParser.CorpoContext ctx) { 
-     
-         if(ctx.botao()==null){
-            String mensagem=" nenhum botao adicionado ao formulario";
-            SemanticoUtils.adicionarErroSemantico(ctx.getStart(), mensagem);           
-         }
-         return visitChildren(ctx); 
-     
-     }*/
     
 }
 
