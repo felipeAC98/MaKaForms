@@ -12,11 +12,18 @@ Trabalho realizado para a disciplina Construção de Compiladores, com o profess
 
 O trabalho consiste em um compilador completo para a linguagem de programação criada. Ele realiza as análises léxica, sintática e semântica do código, indicando possíveis erros, e gera o código equivalente em HTML.
 
-O analisador léxico *faz o que???* . Na pasta [entrada_lexico](https://github.com/felipeAC98/MaKaForms/tree/master/entrada_lexico) encontram-se alguns exemplos de códigos com erros léxicos.
+O analisador léxico irá fazer a tokenização dos valores encontrados no código, além disso irá efetuar a verificação de erros léxicos como comentários ou cadeias iniciadas mas não fechadas e também de símbolos não reconhecidos pela linguagem. Na pasta [entrada_lexico](https://github.com/felipeAC98/MaKaForms/tree/master/entrada_lexico) encontram-se alguns exemplos de códigos com erros léxicos.
 
-Já o analisador sintático *faz o que???* . Na pasta [entrada_sintatico](https://github.com/felipeAC98/MaKaForms/tree/master/entrada_sintatico) encontram-se alguns exemplos de códigos com erros sintáticos.
+Já o analisador sintático verificará erros estruturais do código como por exemplo a falta da definição do título do formulário ou um campo definido sem seu identificador. Na pasta [entrada_sintatico](https://github.com/felipeAC98/MaKaForms/tree/master/entrada_sintatico) encontram-se alguns exemplos de códigos com erros sintáticos.
 
-Por fim, o analisador semântico *faz o que???* . Na pasta [entrada_semantico](https://github.com/felipeAC98/MaKaForms/tree/master/entrada_semantico) encontram-se alguns exemplos de códigos com erros semânticos.
+Por fim, o analisador semântico irá fazer a verificação de 5 diferentes erros semânticos, sendo elas:
+	- Identificador já declarado, irá verificar se o identificador já não foi declarado anteriormente.
+	- Identificador possui underscore em seu texto, indentificadores não devem possuir underscore.
+	- Cor inválida, verificará se o hexadecimal da cor inserida é válido.
+	- Placeholder não permitido, existem campos que não aceitam placeholder.
+	- Placeholder não definido, existem campos em que o placeholder é necessário.
+	
+Na pasta [entrada_semantico](https://github.com/felipeAC98/MaKaForms/tree/master/entrada_semantico) encontram-se alguns exemplos de códigos com erros semânticos.
 
 ## Vídeo descritivo
 
