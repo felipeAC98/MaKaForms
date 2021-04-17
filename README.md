@@ -17,12 +17,12 @@ O analisador léxico irá fazer a tokenização dos valores encontrados no códi
 Já o analisador sintático verificará erros estruturais do código como por exemplo a falta da definição do título do formulário ou um campo definido sem seu identificador. Na pasta [entrada_sintatico](https://github.com/felipeAC98/MaKaForms/tree/master/entrada_sintatico) encontram-se alguns exemplos de códigos com erros sintáticos.
 
 Por fim, o analisador semântico irá fazer a verificação de 5 diferentes erros semânticos, sendo elas:
-	- Identificador já declarado, irá verificar se o identificador já não foi declarado anteriormente.
-	- Identificador possui underscore em seu texto, indentificadores não devem possuir underscore.
-	- Cor inválida, verificará se o hexadecimal da cor inserida é válido.
-	- Placeholder não permitido, existem campos que não aceitam placeholder.
-	- Placeholder não definido, existem campos em que o placeholder é necessário.
-	
+- Identificador já declarado, irá verificar se o identificador já não foi declarado anteriormente.
+- Identificador possui underscore em seu texto, indentificadores não devem possuir underscore.
+- Cor inválida, verificará se o hexadecimal da cor inserida é válido.
+- Placeholder não permitido, existem campos que não aceitam placeholder.
+- Placeholder não definido, existem campos em que o placeholder é necessário.
+
 Na pasta [entrada_semantico](https://github.com/felipeAC98/MaKaForms/tree/master/entrada_semantico) encontram-se alguns exemplos de códigos com erros semânticos.
 
 ## Vídeo descritivo
