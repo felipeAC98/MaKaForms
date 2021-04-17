@@ -1,7 +1,15 @@
 grammar makaforms;
 
-//COMENTARIO: 
+/*comentarios nao devem gerar tokens*/
+COMENTARIO: COMENTARIO_ERRADO
+            '}'
+            -> skip;
 
+/* definicao para erro de comentario */
+COMENTARIO_ERRADO: '{'
+            (' ' | 'A'..'Z' | 'a'..'z' | '0'..'9' | '\u0080'..'\uffff' | SIMBOLOS | SIMBOLO_NAODEFINIDO | CADEIA )*
+            ;
+			
 /* define palavras reservadas (palavres chaves) da linguagem makaforms*/
 PALAVRAS_CHAVE: 'inicioFormulario' | 'fimFormulario' | 'campo' | 'botao' |
                 '_texto' | '_senha'| '_data' | '_email' | 'escolhaUnica' |
