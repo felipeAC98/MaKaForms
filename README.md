@@ -25,6 +25,8 @@ Por fim, o analisador semântico irá fazer a verificação de 5 diferentes erro
 
 Na pasta [entrada_semantico](https://github.com/felipeAC98/MaKaForms/tree/master/entrada_semantico) encontram-se alguns exemplos de códigos com erros semânticos.
 
+Por fim, na pasta [entrada_gerador](https://github.com/felipeAC98/MaKaForms/tree/master/entrada_gerador) disponibilizamos exemplos de códigos prontos.
+
 ## Vídeo descritivo
 
 
@@ -100,7 +102,7 @@ Por exemplo:
 
 >campo _texto nome:"Nome"
 
-Alguns dos campos ainda apresentam algumas particularidades. _tem que falar do placeholde aqui_
+Alguns dos campos ainda apresentam algumas particularidades. 
 
 Para criar um campo ***_escolhaMultipla*** ou um ***_escolhaUnica***, você deve especificar as opções entre aspas, junto com seus identificadores, como no exemplo abaixo.
 
@@ -110,10 +112,28 @@ Para um campo do tipo ***_arquivo***, deve-se optar se o usuário poderá escolh
 
 >campo _arquivo foto um fotoperfil:"Foto de perfil"
 
-Para o campo ***_caixaTexto***, deve-se colocar logo em seguida a quantidade de linhas e a quantidade de colunas desejadas no campo de texto. Por exemplo:
+Para o campo ***_caixaTexto***, deve-se colocar logo em seguida a quantidade de linhas e a quantidade de colunas desejadas no campo de texto. Também existe a opção de colocar um placeholder, logo em seguida, entre aspas. Por exemplo:
 
-> campo _caixaTexto 10 100 descricao:"Descrição"
+> campo _caixaTexto 10 100 descricao:"Descrição" "Placeholder"
 
-Abaixo, há um exemplo de código inteiro escrito na linguagem MKForms. Esse código gera a página HTML deste link.
+Também é possível colocar placeholder em ***_texto*** e ***_email***, de forma similar.
 
-*tem q colocar a versão final*
+Abaixo, há um exemplo de código inteiro escrito na linguagem MKForms. Esse código gera a página HTML [deste link](https://github.com/felipeAC98/MaKaForms/blob/master/saida_html.html).
+
+```
+inicioFormulario
+corBackground #FAAAFF
+corFonte #000000
+titulo "Cadastro de pessoa"
+campo _texto nome:"Nome" "Insira um nome"
+campo _texto sobrenome:"Sobrenome" "Insira um sobrenome"
+campo _email email:"Email" "Insira um email"
+campo _senha senha:"Senha"
+campo _data dtNascimento:"Data de nascimento"
+campo _escolhaUnica feminino:"Feminino", masculino:"Masculino", outro:"Outro" genero:"Gênero"
+campo _escolhaMultipla gato:"Gato", cachorro:"Cachorro", passaro:"Pássaro", peixe:"Peixe", outros:"Outro" pet:"Animal de estimação"
+campo _caixaTexto 10 20 descricao:"Descrição" "Insira uma descricao"
+campo _arquivo _foto um foto:"Foto de perfil"
+botao "Cadastrar"
+fimFormulario
+```
