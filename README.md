@@ -122,11 +122,11 @@ Para um campo do tipo ***_arquivo***, deve-se optar se o usuário poderá escolh
 
 >campo _arquivo foto um fotoperfil:"Foto de perfil"
 
-Para o campo ***_caixaTexto***, deve-se colocar logo em seguida a quantidade de linhas e a quantidade de colunas desejadas no campo de texto. Também existe a opção de colocar um placeholder, logo em seguida, entre aspas. Por exemplo:
+Para o campo ***_caixaTexto***, deve-se colocar logo em seguida a quantidade de linhas e a quantidade de colunas desejadas no campo de texto. Também deve-se colocar um placeholder, logo em seguida, entre aspas. Por exemplo:
 
 > campo _caixaTexto 10 100 descricao:"Descrição" "Placeholder"
 
-Também é possível colocar placeholder em ***_texto*** e ***_email***, de forma similar.
+Também é necessário colocar placeholder em ***_texto*** e ***_email***, de forma similar.
 
 Abaixo, há um exemplo de código inteiro escrito na linguagem MKForms. Esse código gera a página HTML [deste link](https://github.com/felipeAC98/MaKaForms/blob/master/saida_html.html).
 
