@@ -118,9 +118,9 @@ Para criar um campo ***_escolhaMultipla*** ou um ***_escolhaUnica***, você deve
 
 >campo _escolhaMultipla gato:"Gato", cachorro:"Cachorro", passaro:"Pássaro", peixe:"Peixe", outros:"Outro" pet:"Animal de estimação"
 
-Para um campo do tipo ***_arquivo***, deve-se optar se o usuário poderá escolher apenas um ou mais arquivos, e se os arquivos a serem escolhidos serão fotos ou PDFs. Abaixo, há um exemplo. A palavra ***foto*** pode ser trocada por ***pdf***, e ***um*** pode ser trocada por ***multiplos***.
+Para um campo do tipo ***_arquivo***, deve-se optar se o usuário poderá escolher apenas um ou mais arquivos, e se os arquivos a serem escolhidos serão fotos ou PDFs. Abaixo, há um exemplo. A palavra ***_foto*** pode ser trocada por ***_pdf***, e ***um*** pode ser trocada por ***multiplos***.
 
->campo _arquivo foto um fotoperfil:"Foto de perfil"
+>campo _arquivo _foto um fotoperfil:"Foto de perfil"
 
 Para o campo ***_caixaTexto***, deve-se colocar logo em seguida a quantidade de linhas e a quantidade de colunas desejadas no campo de texto. Também deve-se colocar um placeholder, logo em seguida, entre aspas. Por exemplo:
 
