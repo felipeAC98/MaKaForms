@@ -61,11 +61,21 @@ O parâmetro 1 trata-se do caminho do arquivo .jar, o parâmetro 2 é o arquivo 
 
 A estrutura do código deve sempre ser iniciada com a palavra reservada ***inicioFormulario***, e finalizada com ***fimFormulario***.
 
-Todo formulário deve conter, logo após ***inicioFormulario***, um título, no formato ***titulo "cadeira de caracteres"***, e um botao, logo acima de ***fimFormulario***, no formato ***botao "cadeia de caracteres"***.
+Em seguida, escolhe-se a cor do background e a cor da fonte, com os comandos abaixo, seguidos por um código hexadecimal.
+
+>corBackground #FFFFFF
+>
+>corFonte #000000
+
+Todo formulário deve conter, logo após das cores, um título, no formato ***titulo "cadeira de caracteres"***, e um botao, logo acima de ***fimFormulario***, no formato ***botao "cadeia de caracteres"***.
 
 Segue abaixo um exemplo das instruções acima.
 
 >inicioFormulario
+>
+>corBackground #FFFFFF
+>
+>corFonte #000000
 >
 >titulo "Cadastro de pessoa"
 >
@@ -137,3 +147,6 @@ campo _arquivo _foto um foto:"Foto de perfil"
 botao "Cadastrar"
 fimFormulario
 ```
+
+Se necessário, é possível comentar o código, entre {}, como abaixo.
+>{comentário}
